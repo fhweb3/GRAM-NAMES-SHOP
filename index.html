@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#071426">
+<title>🛍️ GRAM NAMES SHOP 🛍️</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar"><a class="brand" href="#"><span class="brand-icon">🛍️</span><span>GRAM NAMES SHOP <small>TELEGRAM USERNAME COLLECTION</small></span><span class="brand-icon">🛍️</span></a><button id="adminOpen" class="ghost-btn">Admin login</button></header>
+<main>
+<section class="hero">
+  <div class="eyebrow">YOUR NEXT HANDLE STARTS HERE</div>
+  <h1>💐🌹🎉 <span>WELCOME</span> 🌹💐</h1>
+  <p class="hero-headline">🔥 15K+ Telegram Usernames</p>
+  <p class="hero-copy">Explore categories, search by keyword, and find your next handle.</p>
+  <a class="channel-card" href="https://t.me/gram_names" target="_blank" rel="noopener noreferrer"><span class="telegram-icon">➤</span><span><strong>🚀 Grab Your Handle Now ✨</strong><small>Join our Telegram channel · @gram_names</small></span><span class="arrow">↗</span></a>
+</section>
+<section class="stats" aria-label="Username statistics">
+  <button class="stat-card active" data-status=""><span class="stat-symbol green">✓</span><span class="stat-label">All usernames</span><strong id="countAll">—</strong><small>Browse inventory ↗</small></button>
+  <button class="stat-card" data-status="Available"><span class="stat-symbol green">✓</span><span class="stat-label">Available</span><strong id="countAvailable">—</strong><small>Browse available ↗</small></button>
+  <button class="stat-card" data-status="Offer Received"><span class="stat-symbol amber">◇</span><span class="stat-label">Offer Received</span><strong id="countOffer">—</strong><small>View offers ↗</small></button>
+  <button class="stat-card" data-status="Sold"><span class="stat-symbol blue">▣</span><span class="stat-label">Sold</span><strong id="countSold">—</strong><small>View sold ↗</small></button>
+</section>
+<section class="browse-section">
+  <div class="section-heading"><div><div class="eyebrow">EXPLORE THE COLLECTION</div><h2>Find a username</h2></div><span class="result-pill" id="resultCount">Loading…</span></div>
+  <div class="search-panel">
+    <label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Search any username or keyword…" autocomplete="off"><button id="clearSearch" aria-label="Clear search">×</button></label>
+    <div class="filters">
+      <label><span>Category</span><select id="categoryFilter"><option value="">All categories</option></select></label>
+      <label><span>Status</span><select id="statusFilter"><option value="">All statuses</option><option>Available</option><option>Offer Received</option><option>Sold</option></select></label>
+      <label><span>Length</span><select id="lengthFilter"><option value="">Any length</option><option value="5">Exactly 5 characters</option><option value="6">6+ characters</option><option value="short">Under 5 characters</option></select></label>
+      <label><span>Sort by</span><select id="sortFilter"><option value="newest">Recently added</option><option value="az">Username A–Z</option><option value="za">Username Z–A</option><option value="length">Character length</option><option value="priceAsc">Price: low to high</option><option value="priceDesc">Price: high to low</option></select></label>
+    </div>
+  </div>
+  <div class="category-section"><div class="section-heading compact"><div><div class="eyebrow">BROWSE BY FOLDER</div><h2>Categories</h2></div><button class="text-btn" id="clearCategory">Clear filter</button></div><div id="categoryFolders" class="folder-grid"><div class="empty-inline">Loading categories…</div></div></div>
+  <div class="section-heading compact listing-heading"><div><div class="eyebrow">THE INVENTORY</div><h2 id="listingTitle">All usernames</h2></div></div>
+  <div id="usernameGrid" class="username-grid"><div class="loading-card">Connecting to inventory…</div></div>
+  <div id="emptyState" class="empty-state hidden"><div class="empty-icon">⌕</div><h3>No usernames found</h3><p>Try another keyword or clear your filters.</p><button class="primary-btn" id="resetFilters">Clear all filters</button></div>
+  <div class="pagination"><button id="prevPage" class="ghost-btn" disabled>← Previous</button><span id="pageInfo">Page 1</span><button id="nextPage" class="ghost-btn" disabled>Next →</button></div>
+</section>
+</main>
+<footer><strong>🛍️ GRAM NAMES SHOP 🛍️</strong><span>Questions? <a href="https://t.me/fhvip3" target="_blank" rel="noopener noreferrer">@fhvip3</a></span><a href="https://t.me/gram_names" target="_blank" rel="noopener noreferrer">Join @gram_names ↗</a></footer>
+<div id="adminModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="adminTitle"><div class="modal-backdrop" data-close></div><div class="modal-panel admin-panel"><div class="modal-head"><div><div class="eyebrow">PRIVATE AREA</div><h2 id="adminTitle">Admin dashboard</h2></div><button class="icon-btn" data-close aria-label="Close">×</button></div>
+  <div id="loginView"><p class="muted">Sign in with your authorized admin account.</p><form id="loginForm" class="stack"><label>Email<input id="loginEmail" type="email" required autocomplete="username"></label><label>Password<input id="loginPassword" type="password" required autocomplete="current-password"></label><button class="primary-btn" type="submit">Sign in securely</button><p id="loginError" class="error-text"></p></form></div>
+  <div id="dashboardView" class="hidden">
+    <div class="admin-toolbar"><span id="adminIdentity" class="muted"></span><button id="logoutBtn" class="ghost-btn">Sign out</button></div>
+    <div class="admin-tabs"><button class="tab active" data-tab="manage">Inventory</button><button class="tab" data-tab="import">CSV import</button><button class="tab" data-tab="archive">Archive</button><button class="tab" data-tab="categories">Categories</button></div>
+    <section id="tab-manage" class="admin-tab"><div class="admin-section-head"><h3 id="editTitle">Add username</h3><button id="cancelEdit" class="text-btn hidden">Cancel edit</button></div>
+      <form id="usernameForm" class="form-grid"><input id="entryId" type="hidden"><label>Username<input id="entryUsername" required maxlength="100" placeholder="e.g. alpha1"></label><label>Category<input id="entryCategory" list="categoryOptions" required placeholder="e.g. Alpha"><datalist id="categoryOptions"></datalist></label><label>Status<select id="entryStatus"><option>Available</option><option>Offer Received</option><option>Sold</option></select></label><label>Price (no currency symbol)<input id="entryPrice" type="number" min="0" step="any" placeholder="e.g. 10.50"></label><button class="primary-btn full" type="submit">Save username</button><p id="entryMessage" class="message full"></p></form>
+      <div class="admin-section-head"><h3>Current inventory</h3><button id="refreshAdmin" class="text-btn">Refresh</button></div><div class="table-wrap"><table><thead><tr><th>Username</th><th>Category</th><th>Status</th><th>Price</th><th>Actions</th></tr></thead><tbody id="adminRows"></tbody></table></div>
+    </section>
+    <section id="tab-import" class="admin-tab hidden"><h3>Import CSV</h3><p class="muted">Required headers: <code>username,category,status,price</code>. Categories are created automatically. Duplicate usernames can be skipped or updated.</p><a class="text-btn" href="sample.csv" download>Download CSV template ↓</a><label class="upload-box">Choose CSV file<input id="csvFile" type="file" accept=".csv,text/csv"></label><label>When a username already exists<select id="duplicateMode"><option value="skip">Skip duplicate usernames</option><option value="update">Update existing records</option></select></label><div id="csvPreview" class="csv-preview muted">Select a CSV file to preview rows before importing.</div><button id="importBtn" class="primary-btn" disabled>Import CSV</button><p id="importMessage" class="message"></p></section>
+    <section id="tab-archive" class="admin-tab hidden"><div class="admin-section-head"><h3>Archived usernames</h3><button id="refreshArchive" class="text-btn">Refresh</button></div><p class="muted">Archived entries are hidden from public search and statistics. Restore them at any time.</p><div class="table-wrap"><table><thead><tr><th>Username</th><th>Category</th><th>Status</th><th>Price</th><th>Action</th></tr></thead><tbody id="archiveRows"></tbody></table></div></section>
+    <section id="tab-categories" class="admin-tab hidden"><h3>Category folders</h3><p class="muted">Add categories here or they will be created automatically during CSV import. Five-character usernames are grouped under the special “5 Characters” parent folder.</p><form id="categoryForm" class="inline-form"><input id="newCategory" required placeholder="New category name"><button class="primary-btn" type="submit">Add category</button></form><div id="adminCategories" class="admin-category-list"></div><p id="categoryMessage" class="message"></p></section>
+  </div>
+  <p id="globalAdminMessage" class="message"></p>
+</div></div>
+<div id="toast" class="toast" role="status"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="config.js"></script><script src="app.js"></script>
+</body></html>
